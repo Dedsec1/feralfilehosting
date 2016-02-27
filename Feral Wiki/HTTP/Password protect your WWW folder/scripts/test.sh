@@ -986,8 +986,6 @@ then
     ##########
             "21") # change the rpc password for the user rutorrent-suffix of choice
              wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
-                    sleep 2
-                fi
                 ;;
     ##########
             "22") # Quit
