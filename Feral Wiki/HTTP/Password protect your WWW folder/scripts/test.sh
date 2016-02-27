@@ -722,7 +722,7 @@ then
                 ;;
     ##########
 ##########
-            "7") # RuTorrent: Change the existing Rutorrent .htaccess to use ~/private/.htpasswd
+          "7") # RuTorrent: Change the existing Rutorrent .htaccess to use ~/private/.htpasswd
                 if [[ -f cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/ ]]
                 then
                    svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/mediastream
@@ -733,7 +733,7 @@ then
 						echo -e "The Mediashre Plugin has been installed:" "\033[36m""$HOME/private/.htpasswd""\e[0m"
                         sleep 2
                     fi
-                ;;
+                    ;;
     ##########
             "8") # RuTorrent: Add or edit a user in the existing Rutorrent .htpasswd
                 if [[ -f $HOME/www/$(whoami).$(hostname -f)/public_html/rutorrent/.htpasswd ]]
