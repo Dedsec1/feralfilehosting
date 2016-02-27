@@ -155,7 +155,7 @@ showMenu ()
     #
     echo -e "\033[32m""Rutorrent specific options section""\e[0m"
     #
-    echo -e "\033[31m""7""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Install Mediashre Plugin" "\033[36m""""\e[0m"
+    echo -e "\033[31m""7""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Change the existing Rutorrent .htaccess to use" "\033[36m""~/private/.htpasswd""\e[0m"
     #
     echo -e "\033[31m""8""\e[0m" "\033[1;30m""RuTorrent:""\e[0m" "Add or edit a user in the existing Rutorrent .htpasswd"
     #
@@ -721,19 +721,22 @@ then
                 fi
                 ;;
     ##########
-##########
-          "7") # RuTorrent: Change the existing Rutorrent .htaccess to use ~/private/.htpasswd
-                if [[ -f cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/ ]]
+            "7") # RuTorrent: Change the existing Rutorrent .htaccess to use ~/private/.htpasswd
+                if [[ -f $HOME/www/$(whoami).$(hostname -f)/public_html/rutorrent/.htaccess ]]
                 then
-                   svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/mediastream
-                   svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
-				   mkdir ~/www/$(whoami).$(hostname -f)/public_html/stream
-                   ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/view.php ~/www/$(whoami).$(hostname -f)/public_html/stream/
-                   sed -i "s|'http://mydomain.com/stream/view.php';|'http://$(whoami).$(hostname -f)/stream/view.php';|g" ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/conf.php     
-						echo -e "The Mediashre Plugin has been installed:" "\033[36m""$HOME/private/.htpasswd""\e[0m"
+                    echo -e "\033[32m""This will change where the rutorrent htaccess looks for the htpasswd file""\e[0m"
+                    read -ep "Are you sure you want to change this [y] or quit back to the menu [q] : " confirm
+                    if [[ $confirm =~ ^[Yy]$ ]]; then
+                        sed -i "s|AuthUserFile .*|AuthUserFile \"$HOME/private/.htpasswd\"|g" $HOME/www/$(whoami).$(hostname -f)/public_html/rutorrent/.htaccess
+                        sed -i "s|AuthName .*|AuthName \"Please Login\"|g" $HOME/www/$(whoami).$(hostname -f)/public_html/rutorrent/.htaccess
+                        echo -e "The path has been changed to:" "\033[36m""$HOME/private/.htpasswd""\e[0m"
                         sleep 2
                     fi
-                    ;;
+                else
+                    echo -e "\033[31m" "The file does not exist." "\033[32m""Is RuTorrent installed?""\e[0m"
+                    sleep 2
+                fi
+                ;;
     ##########
             "8") # RuTorrent: Add or edit a user in the existing Rutorrent .htpasswd
                 if [[ -f $HOME/www/$(whoami).$(hostname -f)/public_html/rutorrent/.htpasswd ]]
@@ -999,8 +1002,11 @@ then
                 fi
                 ;;
     ##########
-            "22") # Quit
-                exit
+            
+            "22") # change the rpc password for the user rutorrent-suffix of choice
+              wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                    sleep 2
+                fi
                 ;;
     ##########
         esac
