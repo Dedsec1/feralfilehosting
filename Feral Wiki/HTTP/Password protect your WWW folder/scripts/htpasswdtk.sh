@@ -406,7 +406,6 @@ main_menu () {
             ${options[0]})
                 wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
                     sleep 2
-                fi
             ;;
             ${options[1]})
                 remove_user
