@@ -396,16 +396,17 @@ then
             "1") # Create a new ~/private/.htpasswd and user only
 main_menu () {
     options=(
-        "Add user"
-        "Remove user"
-        "Update user"
+        "Test"
+        "Check Disk IO,Disk Usage,and Current Process's Running"
+        "Restart Deluge,ruTorrent,Transmission,MySQL"
         "Quit"
     )
     select option in "${options[@]}"; do
         case $option in
             ${options[0]})
-                add_user
-                break
+                wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                    sleep 2
+                fi
             ;;
             ${options[1]})
                 remove_user
