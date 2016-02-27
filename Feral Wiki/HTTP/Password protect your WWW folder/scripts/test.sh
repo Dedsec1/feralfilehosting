@@ -995,6 +995,10 @@ then
                     sleep 2
                 fi
                 ;;
+   ##########
+            "22") # Quit
+                exit
+                ;;
     ##########
         esac
     done
