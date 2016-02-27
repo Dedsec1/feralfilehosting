@@ -394,32 +394,38 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-while :
-do
-    clear
-    cat<<EOF
-    ==============================
-    Menusystem experiment
-    ------------------------------
-    Please enter your choice:
-
-    Option (1)
-    Option (2)
-    Option (3)
-           (Q)uit
-    ------------------------------
-EOF
-    read -n1 -s
-    case "$REPLY" in
-    "1")  echo "you chose choice 1" ;;
-    "2")  echo "you chose choice 2" ;;
-    "3")  echo "you chose choice 3" ;;
-    "Q")  exit                      ;;
-    "q")  echo "case sensitive!!"   ;; 
-     * )  echo "invalid option"     ;;
-    esac
-    sleep 1
-done
+main_menu () {
+    options=(
+        "Add user"
+        "Remove user"
+        "Update user"
+        "Quit"
+    )
+    select option in "${options[@]}"; do
+        case $option in
+            ${options[0]})
+                add_user
+                break
+            ;;
+            ${options[1]})
+                remove_user
+                break
+            ;;
+            ${options[2]})
+                update_user
+                break
+             ;;
+            ${options[3]})
+                exit
+             ;;
+            *) 
+                echo invalid option
+            ;;
+        esac
+    done
+}
+main_menu
+;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
                 if [[ ! -f $HOME/private/.htpasswd ]]
