@@ -425,8 +425,6 @@ then
     done
 }
 main_menu
-                    fi
-                fi
                 ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
