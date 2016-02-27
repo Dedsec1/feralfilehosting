@@ -71,7 +71,7 @@ scriptversion="1.1.5"
 scriptname="htpasswdtk"
 #
 # Author name goes here.
-scriptauthor="randomessence"
+scriptauthor="Dedsec"
 #
 # Contributor's names go here.
 contributors="None credited"
