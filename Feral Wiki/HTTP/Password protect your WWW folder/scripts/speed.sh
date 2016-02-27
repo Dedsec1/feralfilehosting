@@ -22,13 +22,13 @@ do
                 echo "$speed ${routes[$count]} ${route_names[$count]}" >> $reroute_log
 done
 #
-fastestroute=$(sort -hr $reroute_log | head -n 1 | awk '{print $2}')
-fastestspeed=$(sort -hr $reroute_log | head -n 1 | awk '{print $1}')
-fastestroutename=$(sort -hr $reroute_log | head -n 1 | awk '{print $3}')
+#fastestroute=$(sort -hr $reroute_log | head -n 1 | awk '{print $2}')
+#fastestspeed=$(sort -hr $reroute_log | head -n 1 | awk '{print $1}')
+#fastestroutename=$(sort -hr $reroute_log | head -n 1 | awk '{print $3}')
 #
-echo -e "Routing through $fastestroutename provided the highest speed of $fastestspeed"
-echo "Setting route to $fastestroute ..."
-curl 'https://network.feral.io/reroute' --data "nh=$fastestroute" >/dev/null 2>&1
-echo "Please wait two minutes for route change to take effect..."
+#echo -e "Routing through $fastestroutename provided the highest speed of $fastestspeed"
+#echo "Setting route to $fastestroute ..."
+#curl 'https://network.feral.io/reroute' --data "nh=$fastestroute" >/dev/null 2>&1
+#echo "Please wait two minutes for route change to take effect..."
 #
 echo 'All done!'
