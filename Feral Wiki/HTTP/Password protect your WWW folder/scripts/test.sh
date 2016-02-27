@@ -394,25 +394,37 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-                if [[ ! -f $HOME/private/.htpasswd ]]
-                then
-                        echo -e "\033[1;32m""Note: Use a good password manager like keepass so you can easily manage secure passwords." "\e[0m"
-                        read -ep "What is the username you wish to create?: " username
-                        htpasswd -cm $HOME/private/.htpasswd $username
-                        chmod 600 $HOME/private/.htpasswd
-                        echo "The .htpasswd file was created and the user: $username added"
-                        sleep 2
-                else
-                    echo -e "\033[31m""The ~/private/.htpasswd exists.""\e[0m"
-                    read -ep "Do you wish overwrite it? [y] yes or [n] no: " confirm
-                    if [[ $confirm =~ ^[Yy]$ ]]
-                    then
-                        echo -e "\033[1;32m""Note: Use a good password manager like keepass so you can easily manage secure passwords." "\e[0m"
-                        read -ep "What is the username you wish to create?: " username
-                        htpasswd -cm $HOME/private/.htpasswd $username
-                        chmod 600 $HOME/private/.htpasswd
-                        echo "The .htpasswd file was created and the user: $username added"
-                        sleep 2
+               main_menu () {
+    options=(
+        "Add user"
+        "Remove user"
+        "Update user"
+        "Quit"
+    )
+    select option in "${options[@]}"; do
+        case $option in
+            ${options[0]})
+                add_user
+                break
+            ;;
+            ${options[1]})
+                remove_user
+                break
+            ;;
+            ${options[2]})
+                update_user
+                break
+             ;;
+            ${options[3]})
+                exit
+             ;;
+            *) 
+                echo invalid option
+            ;;
+        esac
+    done
+}
+main_menu
                     fi
                 fi
                 ;;
