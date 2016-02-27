@@ -396,7 +396,7 @@ then
             "1") # Create a new ~/private/.htpasswd and user only
 main_menu () {
     options=(
-        "Check Your Servers's Download Speed"
+        "Check Your Download Speed"
         "Check Disk IO,Disk Usage,and Current Process's Running"
         "Update user"
         "Quit"
