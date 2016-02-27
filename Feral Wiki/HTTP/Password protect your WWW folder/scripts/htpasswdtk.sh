@@ -420,7 +420,6 @@ EOF
     esac
     sleep 1
 done
-}
 main_menu
                 ;;
     ##########
