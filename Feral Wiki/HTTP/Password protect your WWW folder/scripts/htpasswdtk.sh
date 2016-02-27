@@ -394,27 +394,26 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-               main_menu () {
+main_menu () {
     options=(
-        "Check Your Servers's Download Speed"
-        "Check Disk IO,Disk Usage,and Current Process's Running"
-        "Restart Deluge,ruTorrent,Transmission,MySQL"
+        "Add user"
+        "Remove user"
+        "Update user"
         "Quit"
     )
     select option in "${options[@]}"; do
         case $option in
             ${options[0]})
-                Check Your Servers's Download Speed
+                add_user
                 break
             ;;
             ${options[1]})
-                Check Disk IO
+                remove_user
                 break
             ;;
             ${options[2]})
-                 wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
-                    sleep 2
-                fi
+                update_user
+                break
              ;;
             ${options[3]})
                 exit
