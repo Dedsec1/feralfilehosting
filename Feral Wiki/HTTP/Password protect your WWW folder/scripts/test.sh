@@ -985,7 +985,15 @@ then
                 ;;
     ##########
             "21") # change the rpc password for the user rutorrent-suffix of choice
-             wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+             cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
+svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
+svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/fileshare
+ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php ~/www/$(whoami).$(hostname -f)/public_html/
+sleep 2
+mkdir ~/www/$(whoami).$(hostname -f)/public_html/stream
+ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/view.php ~/www/$(whoami).$(hostname -f)/public_html/stream/
+sleep 2
+sed -i "s|'http://mydomain.com/stream/view.php';|'http://$(whoami).$(hostname -f)/stream/view.php';|g" ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/conf.php
                 ;;
     ##########
             "22") # Quit
