@@ -141,7 +141,7 @@ showMenu ()
 {
     echo -e "\033[32m"".htpasswd options section""\e[0m"
     #
-    echo -e "\033[31m""1""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user only""\e[0m"
+    echo -e "\033[31m""1""\e[0m" "Diagnosis Tools" "\033[36m""~/private/.htpasswd""\e[0m" "and user only""\e[0m"
     #
     echo -e "\033[31m""2""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
     #
@@ -396,8 +396,8 @@ then
             "1") # Create a new ~/private/.htpasswd and user only
                main_menu () {
     options=(
-        "Add user"
-        "Remove user"
+        "Automatic Speed Test"
+        "Restart Deluge,ruTorrent,Transmission,Mysql"
         "Update user"
         "Quit"
     )
