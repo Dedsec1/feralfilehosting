@@ -405,7 +405,6 @@ main_menu () {
         case $option in
             ${options[0]})
                 wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
-                    sleep 2
             ;;
             ${options[1]})
                 remove_user
