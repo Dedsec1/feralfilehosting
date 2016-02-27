@@ -404,7 +404,7 @@ main_menu () {
     select option in "${options[@]}"; do
         case $option in
             ${options[0]})
-                add_user
+                Test
                 break
             ;;
             ${options[1]})
