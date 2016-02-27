@@ -416,7 +416,7 @@ main_menu () {
             exit
              ;;
               ${options[4]})
-               wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+               exit
              ;;
             *) 
                 echo invalid option
