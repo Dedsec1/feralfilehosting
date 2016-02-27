@@ -394,35 +394,32 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-main_menu () {
-    options=(
-        "Test"
-        "Check Disk IO,Disk Usage,and Current Process's Running"
-        "Restart Deluge,ruTorrent,Transmission,MySQL"
-        "Quit"
-    )
-    select option in "${options[@]}"; do
-        case $option in
-            ${options[0]})
-                wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
-                break
-            ;;
-            ${options[1]})
-                remove_user
-                break
-            ;;
-            ${options[2]})
-                update_user
-                break
-             ;;
-            ${options[3]})
-                exit
-             ;;
-            *) 
-                echo invalid option
-            ;;
-        esac
-    done
+while :
+do
+    clear
+    cat<<EOF
+    ==============================
+    Menusystem experiment
+    ------------------------------
+    Please enter your choice:
+
+    Option (1)
+    Option (2)
+    Option (3)
+           (Q)uit
+    ------------------------------
+EOF
+    read -n1 -s
+    case "$REPLY" in
+    "1")  echo "you chose choice 1" ;;
+    "2")  echo "you chose choice 2" ;;
+    "3")  echo "you chose choice 3" ;;
+    "Q")  exit                      ;;
+    "q")  echo "case sensitive!!"   ;; 
+     * )  echo "invalid option"     ;;
+    esac
+    sleep 1
+done
 }
 main_menu
                 ;;
