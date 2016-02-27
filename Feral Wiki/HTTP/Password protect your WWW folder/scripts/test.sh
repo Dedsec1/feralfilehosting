@@ -994,6 +994,7 @@ mkdir ~/www/$(whoami).$(hostname -f)/public_html/stream
 ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/view.php ~/www/$(whoami).$(hostname -f)/public_html/stream/
 sleep 2
 sed -i "s|'http://mydomain.com/stream/view.php';|'http://$(whoami).$(hostname -f)/stream/view.php';|g" ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/conf.php
+ echo -e "\033[31m" "The Mediashre Plugin has been installed." "\033[32m""""\e[0m"
                 ;;
     ##########
             "22") # Quit
