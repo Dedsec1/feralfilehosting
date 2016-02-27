@@ -1,21 +1,3 @@
-Skip to content
-This repository  
-Search
-Pull requests
-Issues
-Gist
- @Dedsec1
-You don’t have any verified emails. We recommend verifying at least one email.
-Email verification helps our support team verify ownership if you lose account access and allows you to receive all the notifications you ask for.
- Watch 3
-  Star 0
- Fork 7 frankthetank7254/feral
- Code  Issues 2  Pull requests 1  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathferal/auto-reroute.sh
-2fd5466  on Jan 10
- SurlyDuff Added Cogent route option, removed FiberRing options from routing due…
-3 contributors @frankthetank7254 @naisspas @randomessence
-RawBlameHistory     Executable File  168 lines (164 sloc)  6.53 KB
 #!/bin/bash
 # Auto-reroute
 scriptversion="1.0.6"
