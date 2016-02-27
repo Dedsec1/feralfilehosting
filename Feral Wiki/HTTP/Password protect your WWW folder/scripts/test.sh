@@ -141,7 +141,7 @@ showMenu ()
 {
     echo -e "\033[32m"".htpasswd options section""\e[0m"
     #
-    echo -e "\033[31m""1""\e[0m" "Diagnosis Tools" "\033[36m""~/private/.htpasswd""\e[0m" "and user only""\e[0m"
+    echo -e "\033[31m""1""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user only""\e[0m"
     #
     echo -e "\033[31m""2""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
     #
@@ -396,24 +396,25 @@ then
             "1") # Create a new ~/private/.htpasswd and user only
                main_menu () {
     options=(
-        "Automatic Speed Test"
-        "Restart Deluge,ruTorrent,Transmission,Mysql"
-        "Update user"
+        "Check Your Servers's Download Speed"
+        "Check Disk IO,Disk Usage,and Current Process's Running"
+        "Restart Deluge,ruTorrent,Transmission,MySQL"
         "Quit"
     )
     select option in "${options[@]}"; do
         case $option in
             ${options[0]})
-                add_user
+                Check Your Servers's Download Speed
                 break
             ;;
             ${options[1]})
-                remove_user
+                Check Disk IO
                 break
             ;;
             ${options[2]})
-                update_user
-                break
+                 wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                    sleep 2
+                fi
              ;;
             ${options[3]})
                 exit
@@ -425,6 +426,8 @@ then
     done
 }
 main_menu
+                fi
+                fi
                 ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
@@ -995,21 +998,28 @@ main_menu
                 ;;
     ##########
             "21") # change the rpc password for the user rutorrent-suffix of choice
-             cd ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/
-svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/filemanager
-svn co -q http://svn.rutorrent.org/svn/filemanager/trunk/fileshare
-ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/fileshare/share.php ~/www/$(whoami).$(hostname -f)/public_html/
-sleep 2
-mkdir ~/www/$(whoami).$(hostname -f)/public_html/stream
-ln -s ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/view.php ~/www/$(whoami).$(hostname -f)/public_html/stream/
-sleep 2
-sed -i "s|'http://mydomain.com/stream/view.php';|'http://$(whoami).$(hostname -f)/stream/view.php';|g" ~/www/$(whoami).$(hostname -f)/public_html/rutorrent/plugins/mediastream/conf.php
- echo -e "\033[31m" "The Mediashre Plugin has been installed." "\033[32m""""\e[0m"
- sleep 2
+                read -ep "Please state the suffix of the instance you wish to modify: " suffix
+                echo
+                if [[ -f ~/.nginx/conf.d/000-default-server.d/scgi-$suffix-htpasswd ]]
+                then
+                    htpasswd -m $HOME/.nginx/conf.d/000-default-server.d/scgi-$suffix-htpasswd rutorrent
+                    sed -ri '/^rutorrent:(.*)/! s/(.*)//g' ~/.nginx/conf.d/000-default-server.d/scgi-$suffix-htpasswd
+                    sed -ri '/^$/d' ~/.nginx/conf.d/000-default-server.d/scgi-$suffix-htpasswd
+                    echo
+                    sleep 2
+                else
+                    echo -e "\033[31m""required file " "\033[36m""~/.nginx/conf.d/000-default-server.d/scgi-htpasswd-$suffix""\e[0m" "\033[31m""does not exist""\e[0m"
+                    echo -e "Does this custom instance exist? Was it installed after you had updated to nginx (a requirement)?"
+                    echo
+                    sleep 2
+                fi
                 ;;
     ##########
-            "22") # Quit
-                exit
+            
+            "22") # change the rpc password for the user rutorrent-suffix of choice
+              wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                    sleep 2
+                fi
                 ;;
     ##########
         esac
