@@ -58,16 +58,7 @@ reroute_log=/tmp/$(openssl rand -hex 10)
 ############################
 ####### Functions Start ####
 ############################
-
-
-function error_exit {
-rm -f $reroute_log
-exit 1
-}
-
-function requested_route_check {
-curl -4 -s https://network.feral.io/reroute | grep checked | grep -o -P 'value=".{0,15}' | awk '{print $1}' | sed 's/value="//g' | sed 's/"//g' | sed 's/>//g'
-}
+#
 ############################
 ####### Functions End ######
 ############################
