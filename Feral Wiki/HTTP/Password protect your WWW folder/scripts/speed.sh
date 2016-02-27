@@ -1,3 +1,21 @@
+Skip to content
+This repository  
+Search
+Pull requests
+Issues
+Gist
+ @Dedsec1
+You don’t have any verified emails. We recommend verifying at least one email.
+Email verification helps our support team verify ownership if you lose account access and allows you to receive all the notifications you ask for.
+ Watch 3
+  Star 0
+ Fork 7 frankthetank7254/feral
+ Code  Issues 2  Pull requests 1  Wiki  Pulse  Graphs
+Branch: master Find file Copy pathferal/auto-reroute.sh
+2fd5466  on Jan 10
+ SurlyDuff Added Cogent route option, removed FiberRing options from routing due…
+3 contributors @frankthetank7254 @naisspas @randomessence
+RawBlameHistory     Executable File  168 lines (164 sloc)  6.53 KB
 #!/bin/bash
 # Auto-reroute
 scriptversion="1.0.6"
@@ -20,8 +38,8 @@ scriptname="auto-reroute"
 ############################
 # I didn't know where to put this as i didnt want to put it with the bulk of the script, and i wanted it checked early
 #if [ "$(hostname -f | awk -F. '{print $2;}')" == "feralhosting" ]; then
-#	echo -e "\033[31m""it looks like you are trying to run this from a Feral slot, it is meant to be run from your home network""\e[0m"
-#	exit
+	echo -e "\033[31m""it looks like you are trying to run this from a Feral slot, it is meant to be run from your home network""\e[0m"
+	exit
 #fi
 #
 ############################
@@ -59,6 +77,24 @@ reroute_log=/tmp/$(openssl rand -hex 10)
 ####### Functions Start ####
 ############################
 #
+#
+function reroute_check {
+ext_IP=$(curl -4 -s https://network.feral.io/reroute | grep "Your IPv4 address is" | sed 's/<\/p>//g' | awk '{print $NF}')
+route_set=0
+while [ $route_set = 0 ]; do
+route_set=$(curl -4 -s "https://network.feral.io/looking-glass?action=traceroute&host=$ext_IP" | grep -c "$(curl -4 -s https://network.feral.io/reroute | grep checked | awk '{print $(NF-1)}' | sed 's|value=||g' | sed 's/"//g')")
+done
+echo Route has been set.
+}
+
+function error_exit {
+rm -f $reroute_log
+exit 1
+}
+
+function requested_route_check {
+curl -4 -s https://network.feral.io/reroute | grep checked | grep -o -P 'value=".{0,15}' | awk '{print $1}' | sed 's/value="//g' | sed 's/"//g' | sed 's/>//g'
+}
 ############################
 ####### Functions End ######
 ############################
@@ -148,3 +184,5 @@ fi
 ##### Core Script Ends #####
 ############################
 #
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
