@@ -56,11 +56,11 @@ reroute_log=/tmp/$(openssl rand -hex 10)
 #
 #
 
-
-function error_exit {
-rm -f $reroute_log
-exit 1
-}
+##
+##function error_exit {
+##rm -f $reroute_log
+##exit 1
+##}
 
 
 ############################
