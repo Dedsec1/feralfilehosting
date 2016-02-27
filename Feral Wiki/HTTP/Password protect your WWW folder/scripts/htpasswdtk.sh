@@ -420,7 +420,6 @@ EOF
     esac
     sleep 1
 done
-                ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
                 if [[ ! -f $HOME/private/.htpasswd ]]
