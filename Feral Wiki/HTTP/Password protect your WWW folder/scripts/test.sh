@@ -127,7 +127,7 @@ gitissue="https://github.com/feralhosting/feralfilehosting/issues/new"
 ############################
 #
 # Disables the built in script updater permanently by setting this variable to 0.
-updaterenabled="1"
+updaterenabled="0"
 #
 ############################
 ####### Variable End #######
@@ -141,7 +141,7 @@ showMenu ()
 {
     echo -e "\033[32m"".htpasswd options section""\e[0m"
     #
-    echo -e "\033[31m""1""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user only""\e[0m"
+    echo -e "\033[31m""1""\e[0m" "Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
     #
     echo -e "\033[31m""2""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
     #
@@ -392,28 +392,41 @@ then
         read -ep "Enter the number of the action you wish to complete: " CHOICE
         echo
         case "$CHOICE" in
-    ##########
+ ##########
             "1") # Create a new ~/private/.htpasswd and user only
-                if [[ ! -f $HOME/private/.htpasswd ]]
-                then
-                        echo -e "\033[1;32m""Note: Use a good password manager like keepass so you can easily manage secure passwords." "\e[0m"
-                        read -ep "What is the username you wish to create?: " username
-                        htpasswd -cm $HOME/private/.htpasswd $username
-                        chmod 600 $HOME/private/.htpasswd
-                        echo "The .htpasswd file was created and the user: $username added"
-                        sleep 2
-                else
-                    echo -e "\033[31m""The ~/private/.htpasswd exists.""\e[0m"
-                    read -ep "Do you wish overwrite it? [y] yes or [n] no: " confirm
-                    if [[ $confirm =~ ^[Yy]$ ]]
-                    then
-                        echo -e "\033[1;32m""Note: Use a good password manager like keepass so you can easily manage secure passwords." "\e[0m"
-                        read -ep "What is the username you wish to create?: " username
-                        htpasswd -cm $HOME/private/.htpasswd $username
-                        chmod 600 $HOME/private/.htpasswd
-                        echo "The .htpasswd file was created and the user: $username added"
-                        sleep 2
-                    fi
+               main_menu () {
+    options=(
+        "Check Your Servers's Download Speed"
+        "Check Disk IO,Disk Usage,and Current Process's Running"
+        "Restart Deluge,ruTorrent,Transmission,MySQL"
+        "Quit"
+    )
+    select option in "${options[@]}"; do
+        case $option in
+            ${options[0]})
+                Check Your Servers's Download Speed
+                break
+            ;;
+            ${options[1]})
+                Check Disk IO
+                break
+            ;;
+            ${options[2]})
+                 wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                    sleep 2
+                fi
+             ;;
+            ${options[3]})
+                exit
+             ;;
+            *) 
+                echo invalid option
+            ;;
+        esac
+    done
+}
+main_menu
+                fi
                 fi
                 ;;
     ##########
