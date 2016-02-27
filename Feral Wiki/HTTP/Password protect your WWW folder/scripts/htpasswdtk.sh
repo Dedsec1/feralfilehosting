@@ -396,8 +396,8 @@ then
             "1") # Create a new ~/private/.htpasswd and user only
 main_menu () {
     options=(
-        "Add user"
-        "Remove user"
+        "Check Your Servers's Download Speed"
+        "Check Disk IO,Disk Usage,and Current Process's Running"
         "Update user"
         "Quit"
     )
