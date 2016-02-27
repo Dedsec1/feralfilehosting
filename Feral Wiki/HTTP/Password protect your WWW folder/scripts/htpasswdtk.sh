@@ -397,7 +397,7 @@ then
 main_menu () {
     options=(
         "Check Your Download Speed"
-        "Check Disk IO,Disk Usage,and Current Process's Running"
+        "Get Disk Information"
         "Update user"
         "Quit"
     )
@@ -405,11 +405,9 @@ main_menu () {
         case $option in
             ${options[0]})
                 Test
-                break
             ;;
             ${options[1]})
                 remove_user
-                break
             ;;
             ${options[2]})
                 update_user
