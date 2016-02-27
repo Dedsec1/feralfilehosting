@@ -398,7 +398,7 @@ main_menu () {
     options=(
         "Check Your Download Speed"
         "Get Disk Information"
-        "Update user"
+        "Restart Services,Deluge,ruTorrent,Transission,MySQL"
         "Quit"
     )
     select option in "${options[@]}"; do
