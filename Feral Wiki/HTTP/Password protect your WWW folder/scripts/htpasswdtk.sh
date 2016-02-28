@@ -410,7 +410,7 @@ main_menu () {
                 wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
             ;;
             ${options[2]})
-                update_user
+                wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
                 break
              ;;
             ${options[3]})
