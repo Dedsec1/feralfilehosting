@@ -415,10 +415,10 @@ main_menu () {
                 break
              ;;
             ${options[3]})
-              wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh  
+              exit
              ;;
               ${options[4]})
-                exit
+               wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
              ;;
             *) 
                 echo invalid option
