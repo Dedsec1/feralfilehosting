@@ -432,7 +432,7 @@ main_menu () {
     done
 }
 main_menu
-;;
+fi
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
                 if [[ ! -f $HOME/private/.htpasswd ]]
