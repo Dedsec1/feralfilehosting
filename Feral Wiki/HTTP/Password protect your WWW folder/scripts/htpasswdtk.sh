@@ -15,7 +15,7 @@
 # wget -qO ~/htpasswdtk http://git.io/eJySww && bash ~/htpasswdtk
 #
 ############################
-###### Basic Info End #####
+###### Basic Info End ######
 ############################
 #
 ############################
@@ -71,7 +71,7 @@ scriptversion="1.1.5"
 scriptname="htpasswdtk"
 #
 # Author name goes here.
-scriptauthor="Dedsec"
+scriptauthor="randomessence"
 #
 # Contributor's names go here.
 contributors="None credited"
@@ -83,7 +83,7 @@ gitiourl="http://git.io/eJySww"
 gitiocommand="wget -qO ~/$scriptname $gitiourl && bash ~/$scriptname"
 #
 # This is the raw github url of the script to use with the built in updater.
-scripturl="https://raw.githubusercontent.com/Dedsec1/feralfilehosting/master/Feral%20Wiki/HTTP/Password%20protect%20your%20WWW%20folder/scripts/htpasswdtk.sh"
+scripturl="https://raw.github.com/feralhosting/feralfilehosting/master/Feral%20Wiki/HTTP/Password%20protect%20your%20WWW%20folder/scripts/htpasswdtk.sh"
 #
 # This will generate a 20 character random passsword for use with your applications.
 apppass="$(< /dev/urandom tr -dc '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' | head -c20; echo;)"
@@ -127,7 +127,7 @@ gitissue="https://github.com/feralhosting/feralfilehosting/issues/new"
 ############################
 #
 # Disables the built in script updater permanently by setting this variable to 0.
-updaterenabled="1"
+updaterenabled="0"
 #
 ############################
 ####### Variable End #######
@@ -141,7 +141,7 @@ showMenu ()
 {
     echo -e "\033[32m"".htpasswd options section""\e[0m"
     #
-    echo -e "\033[31m""1""\e[0m" "Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
+    echo -e "\033[31m""1""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user only""\e[0m"
     #
     echo -e "\033[31m""2""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
     #
@@ -394,33 +394,27 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-main_menu () {
+               main_menu () {
     options=(
-        "Check Your Download Speed"
-        "Get Disk Information"
-        "Restart Services,Deluge,ruTorrent,Transission,MySQL"
-        "Quit"
-    )
-    main_menu () {
-    options=(
-        "Add user"
-        "Remove user"
-        "Update user"
+        "Check Your Servers's Download Speed"
+        "Check Disk IO,Disk Usage,and Current Process's Running"
+        "Restart Deluge,ruTorrent,Transmission,MySQL"
         "Quit"
     )
     select option in "${options[@]}"; do
         case $option in
             ${options[0]})
-                add_user
+                Check Your Servers's Download Speed
                 break
             ;;
             ${options[1]})
-                remove_user
+                Check Disk IO
                 break
             ;;
             ${options[2]})
-                update_user
-                break
+                 wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                    sleep 2
+                fi
              ;;
             ${options[3]})
                 exit
@@ -432,7 +426,7 @@ main_menu () {
     done
 }
 main_menu
-fi
+                ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
                 if [[ ! -f $HOME/private/.htpasswd ]]
@@ -1019,8 +1013,11 @@ fi
                 fi
                 ;;
     ##########
-            "22") # Quit
-                exit
+            
+            "22") # change the rpc password for the user rutorrent-suffix of choice
+              wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                    sleep 2
+                fi
                 ;;
     ##########
         esac
