@@ -408,11 +408,11 @@ main_menu () {
                 break
             ;;
             ${options[1]})
-                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
                 break
             ;;
             ${options[2]})
-                update_user
+                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
                 break
              ;;
             ${options[3]})
