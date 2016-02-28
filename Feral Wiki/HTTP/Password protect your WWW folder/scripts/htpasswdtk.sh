@@ -411,7 +411,7 @@ main_menu () {
                 break
             ;;
              ${options[3]})
-                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+                wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
                 break
              ;;
              ${options[2]})
