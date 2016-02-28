@@ -396,9 +396,9 @@ then
             "1") # Create a new ~/private/.htpasswd and user only
 main_menu () {
     options=(
-        "Check Download Speed for your Slot with Ferals Servers."
+        "Check Download Speed for your slot."
         "Get Disk info"
-        "Reboot"
+        "Reboot Deluge,RuTorrent,Transmission,MySQL"
         "Quit"
     )
     select option in "${options[@]}"; do
