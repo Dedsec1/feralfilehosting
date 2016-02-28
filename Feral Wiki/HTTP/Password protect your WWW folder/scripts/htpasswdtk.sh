@@ -141,7 +141,7 @@ showMenu ()
 {
     echo -e "\033[32m"".htpasswd options section""\e[0m"
     #
-    echo -e "\033[31m""1""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user only""\e[0m"
+    echo -e "\033[31m""1""\e[0m" "Diagonsis Tools" "\033[36m""""\e[0m" """\e[0m"
     #
     echo -e "\033[31m""2""\e[0m" "Create a new" "\033[36m""~/private/.htpasswd""\e[0m" "and user, and/or a .htaccess"
     #
@@ -394,27 +394,19 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-                if [[ ! -f $HOME/private/.htpasswd ]]
-                then
-                        echo -e "\033[1;32m""Note: Use a good password manager like keepass so you can easily manage secure passwords." "\e[0m"
-                        read -ep "What is the username you wish to create?: " username
-                        htpasswd -cm $HOME/private/.htpasswd $username
-                        chmod 600 $HOME/private/.htpasswd
-                        echo "The .htpasswd file was created and the user: $username added"
-                        sleep 2
-                else
-                    echo -e "\033[31m""The ~/private/.htpasswd exists.""\e[0m"
-                    read -ep "Do you wish overwrite it? [y] yes or [n] no: " confirm
-                    if [[ $confirm =~ ^[Yy]$ ]]
-                    then
-                        echo -e "\033[1;32m""Note: Use a good password manager like keepass so you can easily manage secure passwords." "\e[0m"
-                        read -ep "What is the username you wish to create?: " username
-                        htpasswd -cm $HOME/private/.htpasswd $username
-                        chmod 600 $HOME/private/.htpasswd
-                        echo "The .htpasswd file was created and the user: $username added"
-                        sleep 2
-                    fi
-                fi
+               function subopt1
+{
+   subopt1=""
+   while [ "$subopt1" != "x" ]
+   do
+      echo Sub Menu 1 Heading
+      echo Option A
+      echo Option B
+      echo x Back to Main Menu
+      read -p "Select sub option1" subopt1
+   done
+ }
+
                 ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
