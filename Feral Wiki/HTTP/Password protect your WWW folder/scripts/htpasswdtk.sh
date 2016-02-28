@@ -396,7 +396,7 @@ then
             "1") # Create a new ~/private/.htpasswd and user only
 main_menu () {
     options=(
-        "Check Download Speed"
+        "Check Download Speed for your Slot with Ferals Servers."
         "Get Disk info"
         "Reboot"
         "Quit"
