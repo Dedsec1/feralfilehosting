@@ -412,7 +412,7 @@ main_menu () {
                 break
             ;;
             ${options[2]})
-                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+               
                 break
              ;;
             ${options[3]})
