@@ -394,7 +394,15 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-             echo -n "Enter choice: "
+function update_user 
+{
+ option=0
+ until [ "$option" = "3"]; do
+ echo "  1.) Update username"
+ echo "  2.) Update password"
+ echo "  3.) Return to menu"
+
+ echo -n "Enter choice: "
  read option
  echo ""
  case $option in
@@ -431,6 +439,7 @@ done
  }
 
 main_menu
+
                 ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
