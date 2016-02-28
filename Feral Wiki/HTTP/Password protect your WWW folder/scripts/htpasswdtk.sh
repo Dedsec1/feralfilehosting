@@ -417,6 +417,7 @@ main_menu () {
              ;;
             ${options[3]})
                 exit
+                break
              ;;
             *) 
                 echo invalid option
