@@ -418,11 +418,9 @@ main_menu () {
              ;;
             ${options[3]})
                 host $(hostname -f)
-                break
              ;;
              ${options[4]})
                 exit
-                break
              ;;
             *) 
                 echo invalid option
