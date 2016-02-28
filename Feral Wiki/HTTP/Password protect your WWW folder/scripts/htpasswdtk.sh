@@ -417,11 +417,11 @@ main_menu () {
                 break
              ;;
             ${options[3]})
-                exit
+                host $(hostname -f)
                 break
              ;;
              ${options[4]})
-                host $(hostname -f)
+                exit
                 break
              ;;
             *) 
