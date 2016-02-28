@@ -403,7 +403,7 @@ main_menu () {
     )
     select option in "${options[@]}"; do
         case $option in
-            ${options[1]})
+            ${options[0]})
              wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh    
             ;;
             ${options[2]})
