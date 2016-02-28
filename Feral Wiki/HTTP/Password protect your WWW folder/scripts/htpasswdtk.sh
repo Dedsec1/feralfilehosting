@@ -399,6 +399,7 @@ main_menu () {
         "Check Download Speed for your slot."
         "Get Disk info"
         "Reboot Deluge,RuTorrent,Transmission,MySQL"
+        "Get Hostname and IP"
         "Quit"
     )
     select option in "${options[@]}"; do
@@ -417,6 +418,10 @@ main_menu () {
              ;;
             ${options[3]})
                 exit
+                break
+             ;;
+             ${options[4]})
+                host $(hostname -f)
                 break
              ;;
             *) 
