@@ -404,16 +404,19 @@ main_menu () {
     select option in "${options[@]}"; do
         case $option in
             ${options[0]})
-             wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh    
+                wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
+                break
+            ;;
+            ${options[1]})
+                remove_user
+                break
             ;;
             ${options[2]})
-              wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
-            ;;
-            ${options[3]})
-             wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                update_user
+                break
              ;;
-            ${options[4]})
-              exit
+            ${options[3]})
+                exit
              ;;
             *) 
                 echo invalid option
