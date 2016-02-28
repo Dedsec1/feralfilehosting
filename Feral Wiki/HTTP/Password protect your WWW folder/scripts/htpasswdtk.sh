@@ -397,8 +397,7 @@ then
  while true
  do
  PS3='Please enter your choice: '
- options=
- ("Check Download Speed for your slot" 
+ options=("Check Download Speed for your slot" 
  "Get Disk info"
  "Reboot Deluge,RuTorrent,Transmission,MySQL" 
  "Get Hostname and IP" "Quit")
