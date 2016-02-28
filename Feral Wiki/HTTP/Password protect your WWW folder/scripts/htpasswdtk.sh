@@ -409,10 +409,10 @@ main_menu () {
             ${options[1]})
                 wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
             ;;
-            ${options[2]})
-                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
-             ;;
             ${options[3]})
+               wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+             ;;
+            ${options[4]})
                 exit
              ;;
             *) 
