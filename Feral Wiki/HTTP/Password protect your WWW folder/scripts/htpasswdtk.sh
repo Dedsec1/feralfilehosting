@@ -397,20 +397,24 @@ then
  while true
  do
  PS3='Please enter your choice: '
- options=("Option 1" "Option 2" "Option 3" "Quit")
+ options=("Check Download Speed for your slot" "Get Disk info" "Reboot Deluge,RuTorrent,Transmission,MySQL" "Get Hostname and IP" "Quit")
  select opt in "${options[@]}" 
  do
      case $opt in
-         "Test")
+         "Check Download Speed for your slot")
              echo "you chose choice 1"
              break
              ;;
-         "Option 2")
+         "Get Disk info")
              echo "you chose choice 2"
              break
              ;;
-         "Option 3")
+         "Reboot Deluge,RuTorrent,Transmission,MySQL")
              echo "you chose choice 3"
+             break
+             ;;
+             "Get Hostname and IP")
+             echo "you chose choice 4"
              break
              ;;
          "Quit")
