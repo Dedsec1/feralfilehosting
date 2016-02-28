@@ -410,12 +410,12 @@ main_menu () {
                 wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
                 break
             ;;
-            ${options[2]})
-                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
+             ${options[3]})
+                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
                 break
              ;;
-            ${options[3]})
-               wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+             ${options[2]})
+                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
                 break
              ;;
               ${options[4]})
