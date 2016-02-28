@@ -406,6 +406,7 @@ main_menu () {
             ${options[0]})
                 wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
                 break
+                fi
             ;;
             ${options[1]})
                 remove_user
