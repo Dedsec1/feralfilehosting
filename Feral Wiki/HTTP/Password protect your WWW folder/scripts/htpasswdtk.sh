@@ -394,60 +394,43 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-              function subopt1
-{
-   subopt1=""
-   while [ "$subopt1" != "x" ]
-   do
-      echo Sub Menu 1 Heading
-      break
-      echo Option A
-      break
-      echo Option B
-      break
-      echo x Back to Main Menu
-      break
-      read -p "Select sub option1" subopt1
-   done
- }
-
- function subopt2
- {
-     subopt2=""
-     while [ "$subopt2" != "x" ]
-     do
-         echo Sub Menu 2 Heading
-         break
-         echo Option A
-         break
-         echo Option B
-         break
-         echo x Back to Main Menu
-         break
-         read -p "Select sub-option2" subopt2    
-     done
- }
-
- function mainopt
- {
-    opt=""
-    while [ "$opt" != "x" ]
-    do
-        echo Menu Heading
-        echo Sub Menu 1
-        echo Sub Menu 2
-        read -p "Select Otion: " opt
-        if [ "$opt" = "1" ]; then
-             subopt1
-        elif [ "$opt" = "2" ]; then
-             subopt2
-        elif [ "$opt" = "x" ];then
-             break
-        fi
-   done
+             echo -n "Enter choice: "
+ read option
+ echo ""
+ case $option in
+ 1 ) update_username; press_enter ;;
+ 2 ) update_password; press_enter ;;
+ 3 ) main_menu; press_enter ;;
+ 4 ) break ;;
+ * ) tput setf 3;echo "Please enter 1, 2 or 3";tput setf 3; 
+ esac
+#   }
+ done
 }
 
-mainopt
+function main_menu 
+{
+option=0
+until [ "$option" = "4" ]; do
+echo "  1.) Add user"
+echo "  2.) Remove user"
+echo "  3.) Update user"
+echo "  4.) Quit"
+
+echo -n "Enter choice: "
+read option
+echo ""
+case $option in
+    1 ) add_user ; press_enter ;;
+    2 ) remove_user ; press_enter ;;
+    3 ) update_user ; press_enter ;;
+    4 ) exit;;
+    * ) tput setf 4;echo "Please enter 1, 2, 3, or 4";tput setf 4; 
+esac
+done
+ }
+
+main_menu
                 ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
