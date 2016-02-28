@@ -398,7 +398,7 @@ main_menu () {
     options=(
         "Check Download Speed"
         "Get Disk info"
-        "Restart TEST"
+        "Reboot"
         "Quit"
     )
     select option in "${options[@]}"; do
@@ -410,7 +410,8 @@ main_menu () {
                 wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
             ;;
             ${options[2]})
-                wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+                break
              ;;
             ${options[3]})
                 exit
