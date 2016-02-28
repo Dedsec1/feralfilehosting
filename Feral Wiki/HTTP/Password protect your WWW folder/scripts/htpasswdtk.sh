@@ -400,9 +400,13 @@ then
    while [ "$subopt1" != "x" ]
    do
       echo Sub Menu 1 Heading
+      break
       echo Option A
+      break
       echo Option B
+      break
       echo x Back to Main Menu
+      break
       read -p "Select sub option1" subopt1
    done
  }
@@ -413,9 +417,13 @@ then
      while [ "$subopt2" != "x" ]
      do
          echo Sub Menu 2 Heading
+         break
          echo Option A
+         break
          echo Option B
+         break
          echo x Back to Main Menu
+         break
          read -p "Select sub-option2" subopt2    
      done
  }
