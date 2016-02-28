@@ -409,7 +409,8 @@ main_menu () {
                 fi
             ;;
             ${options[1]})
-                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
+                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
+                break
             ;;
             ${options[2]})
                 update_user
