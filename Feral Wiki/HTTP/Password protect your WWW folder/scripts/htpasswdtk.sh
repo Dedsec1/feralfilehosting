@@ -394,42 +394,33 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
-main_menu () {
-    options=(
-        "Check Download Speed for your slot."
-        "Get Disk info"
-        "Reboot Deluge,RuTorrent,Transmission,MySQL"
-        "Get Hostname and IP"
-        "Quit"
-    )
-    select option in "${options[@]}"; do
-        case $option in
-            ${options[0]})
-                wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
-                break
-            ;;
-            ${options[1]})
-                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
-                break
-            ;;
-            ${options[2]})
-                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
-                break
+ while true
+ do
+ PS3='Please enter your choice: '
+ options=("Option 1" "Option 2" "Option 3" "Quit")
+ select opt in "${options[@]}" 
+ do
+     case $opt in
+         "Option 1")
+             echo "you chose choice 1"
+             break
              ;;
-            ${options[3]})
-                host $(hostname -f)
+         "Option 2")
+             echo "you chose choice 2"
+             break
              ;;
-             ${options[4]})
-                exit
+         "Option 3")
+             echo "you chose choice 3"
+             break
              ;;
-            *) 
-                echo invalid option
-            ;;
-        esac
-    done
-}
-main_menu
-
+         "Quit")
+             echo "Thank You..."                 
+             exit
+             ;;
+         *) echo invalid option;;
+     esac
+ done
+ done
                 ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
