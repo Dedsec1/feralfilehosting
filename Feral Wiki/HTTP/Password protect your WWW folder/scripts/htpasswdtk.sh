@@ -71,7 +71,7 @@ scriptversion="1.1.5"
 scriptname="htpasswdtk"
 #
 # Author name goes here.
-scriptauthor="randomessence"
+scriptauthor="Dedsec"
 #
 # Contributor's names go here.
 contributors="None credited"
@@ -83,7 +83,7 @@ gitiourl="http://git.io/eJySww"
 gitiocommand="wget -qO ~/$scriptname $gitiourl && bash ~/$scriptname"
 #
 # This is the raw github url of the script to use with the built in updater.
-scripturl="https://raw.github.com/feralhosting/feralfilehosting/master/Feral%20Wiki/HTTP/Password%20protect%20your%20WWW%20folder/scripts/htpasswdtk.sh"
+scripturl="https://raw.githubusercontent.com/Dedsec1/feralfilehosting/master/Feral%20Wiki/HTTP/Password%20protect%20your%20WWW%20folder/scripts/htpasswdtk.sh"
 #
 # This will generate a 20 character random passsword for use with your applications.
 apppass="$(< /dev/urandom tr -dc '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' | head -c20; echo;)"
