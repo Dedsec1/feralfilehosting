@@ -394,40 +394,40 @@ then
         case "$CHOICE" in
     ##########
             "1") # Create a new ~/private/.htpasswd and user only
- while true
- do
- PS3='Please enter your choice: '
- options=("Check Download Speed for your slot" 
- "Get Disk info"
- "Reboot Deluge,RuTorrent,Transmission,MySQL" 
- "Get Hostname and IP" "Quit")
- select opt in "${options[@]}" 
- do
-     case $opt in
-         "Check Download Speed")
-             echo "you chose choice 1"
-             break
+ main_menu () {
+    options=(
+        "Check Download Speed for your slot."
+        "Get Disk info"
+        "Reboot Deluge,RuTorrent,Transmission,MySQL"
+        "Get Hostname and IP"
+        "Quit"
+    )
+    select option in "${options[@]}"; do
+        case $option in
+            ${options[0]})
+                wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
+                break
+            ;;
+            ${options[1]})
+                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
+                break
+            ;;
+            ${options[2]})
+                wget -qO ~/restart.sh https://git.io/v2afh && bash ~/restart.sh
+                break
              ;;
-         "Get Disk info")
-             echo "you chose choice 2"
-             break
+            ${options[3]})
+                host $(hostname -f)
              ;;
-         "Reboot Deluge,RuTorrent,Transmission,MySQL")
-             echo "you chose choice 3"
-             break
+             ${options[4]})
+                exit
              ;;
-             "Get Hostname and IP")
-             echo "you chose choice 4"
-             break
-             ;;
-         "Quit")
-             echo "Thank You..."                 
-             exit
-             ;;
-         *) echo invalid option;;
-     esac
- done
- done
+            *) 
+                echo invalid option
+            ;;
+        esac
+    done
+}
                 ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
