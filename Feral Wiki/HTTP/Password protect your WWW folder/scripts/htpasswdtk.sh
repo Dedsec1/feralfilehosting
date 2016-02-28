@@ -407,13 +407,13 @@ main_menu () {
              wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh    
             ;;
             ${options[1]})
-              wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
+              
             ;;
             ${options[2]})
-            wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+             wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh 
              ;;
             ${options[3]})
-            exit
+             wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
              ;;
               ${options[4]})
                exit
