@@ -401,20 +401,29 @@ main_menu () {
         "Restart Services,Deluge,ruTorrent,Transission,MySQL"
         "Quit"
     )
+    main_menu () {
+    options=(
+        "Add user"
+        "Remove user"
+        "Update user"
+        "Quit"
+    )
     select option in "${options[@]}"; do
         case $option in
             ${options[0]})
-                wget -qO ~/feral-speed.sh https://git.io/v22hr && bash ~/feral-speed.sh
-            ;;
-            ${options[1]})
-                 wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.sh
+                add_user
                 break
             ;;
-             ${options[3]})
-                wget -qO ~/restart.sh http://git.io/5Uw8Gw && bash ~/restart.s
+            ${options[1]})
+                remove_user
+                break
+            ;;
+            ${options[2]})
+                update_user
+                break
              ;;
-              ${options[4]})
-               exit
+            ${options[3]})
+                exit
              ;;
             *) 
                 echo invalid option
@@ -423,7 +432,6 @@ main_menu () {
     done
 }
 main_menu
-;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
                 if [[ ! -f $HOME/private/.htpasswd ]]
