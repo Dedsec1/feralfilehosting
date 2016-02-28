@@ -15,7 +15,7 @@
 # wget -qO ~/htpasswdtk http://git.io/eJySww && bash ~/htpasswdtk
 #
 ############################
-###### Basic Info End ######
+###### Basic Info End #####
 ############################
 #
 ############################
