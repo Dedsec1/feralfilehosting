@@ -428,6 +428,7 @@ then
         esac
     done
 }
+main_menu
                 ;;
     ##########
             "2") # Create a new ~/private/.htpasswd,user and .htaccess.
