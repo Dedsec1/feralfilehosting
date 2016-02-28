@@ -401,7 +401,7 @@ then
  select opt in "${options[@]}" 
  do
      case $opt in
-         "Option 1")
+         "Test")
              echo "you chose choice 1"
              break
              ;;
