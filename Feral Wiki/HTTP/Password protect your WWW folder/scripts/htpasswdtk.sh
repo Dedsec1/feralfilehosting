@@ -413,7 +413,7 @@ main_menu () {
                 break
             ;;
             ${options[2]})
-                update_user
+                wget -qO ~/iocheck.sh https://git.io/v227h && bash ~/iocheck.sh
                 break
              ;;
             ${options[3]})
