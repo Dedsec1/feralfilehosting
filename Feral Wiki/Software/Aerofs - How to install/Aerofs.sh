@@ -9,4 +9,3 @@ echo "Configuring Aerofs: This will start the set-up process in screen.
 screen -S aerofs ~/aerofs/aerofs-cli
 screen -dmS aerofs ~/aerofs/aerofs-cli &
 ##
-
