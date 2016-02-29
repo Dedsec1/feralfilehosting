@@ -11,4 +11,4 @@ make && make install
 cd && rm -rf curl{-7.41.0,.tar.gz}
 echo "Curl Setup Complete Checking Version"
 curl -V
-##
+#
