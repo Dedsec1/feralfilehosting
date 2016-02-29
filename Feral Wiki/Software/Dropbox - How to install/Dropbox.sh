@@ -9,7 +9,7 @@ wget -qO ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.p
 source ~/.bashrc && source ~/.profile
 rm -f ~/dropbox.tar.gz
 echo "Setting up linking your Drobox Account"
-HOME=$HOME/ ~/.dropbox-dist/dropboxd
+~/.dropbox-dist/dropboxd
 sleep 10
-HOME=$HOME/ ~/.dropbox-dist/dropboxd &
+~/.dropbox-dist/dropboxd &
 ##
