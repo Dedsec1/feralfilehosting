@@ -126,7 +126,7 @@ giturl="https://github.com/RuudBurger/CouchPotatoServer.git"
 ############################
 #
 # Disables the built in script updater permanently by setting this variable to 0.
-updaterenabled="1"
+updaterenabled="0"
 #
 ############################
 ####### Variable End #######
@@ -159,7 +159,7 @@ then
     echo -e "\033[32m""Script help and usage instructions:""\e[0m"
     echo
     #
-    ###################################
+    #####################################
     ##### Custom Help Info Starts #####
     ###################################
     #
