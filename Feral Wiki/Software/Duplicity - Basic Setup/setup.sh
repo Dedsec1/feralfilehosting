@@ -28,7 +28,7 @@ scriptname="auto-reroute"
 ## Version History Starts ##
 ############################
 #
-# v1.0.6 - Added Cogent route option, removed FiberRing options
+
 # v1.0.5 - Fixed issue where fastest route was not always chosen on cygwin
 # v1.0.4 - Removed route
 # v1.0.3 - Added logging (~./auto-reroute/auto-reroute.log).
