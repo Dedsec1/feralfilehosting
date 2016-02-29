@@ -378,37 +378,14 @@ then
                     .dropbox-dist/dropboxd &
                 ;;
             "2")    
-                if [[ -d ~/.couchpotato ]]
-                then
-                    if [[ -f ~/.couchpotato/couchpotato.pid ]]
-                    then
-                        kill "$(cat ~/.couchpotato/couchpotato.pid)"
-                        while [[ -f ~/.couchpotato/couchpotato.pid  ]]; do printf '\rI need to wait for Couchpotato to shut down. '; done
-                        echo -e '\n'
-                    fi
-                    cd ~/.couchpotato
-                    git pull origin
+               mkdir -p ~/bin && bash
+                    wget -qO ~/dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64" && tar -xzf dropbox.tar.gz
+                    wget -qO ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py" && chmod 700 ~/bin/dropbox.py
+                    source ~/.bashrc && source ~/.profile
+                    rm -f ~/dropbox.tar.gz
+                    echo "Downloading and configuring some files..."
                     echo
-                    python ~/.couchpotato/CouchPotato.py --config_file="$HOME/.couchpotato/settings.conf" --daemon
-                    echo "Visit this URL to use Couchpotato:"
-                    echo
-                    echo -e "\033[32m""${host2https}couchpotato/""\e[0m"
-                    echo
-                    sleep 10
-                    if [[ -f ~/.couchpotato/couchpotato.pid ]] 
-                    then
-                        echo -e "Couchpotato is running at the PID:$(cat ~/.couchpotato/couchpotato.pid)"
-                        echo
-                    else
-                        python ~/.couchpotato/CouchPotato.py --config_file="$HOME/.couchpotato/settings.conf"  --daemon
-                        echo
-                        echo -e "Couchpotato is running at the PID:$(cat ~/.couchpotato/couchpotato.pid)"
-                        echo
-                    fi
-                else
-                    echo 'Couchpotato is not installed to ~/.couchpotato'
-                    echo
-                fi
+                    .dropbox-dist/dropboxd &
                 ;;
             "3")
                 # Check for the existence of the ~/.nginx/conf.d/000-default-server.d directory so as to echo a relevant statement.
