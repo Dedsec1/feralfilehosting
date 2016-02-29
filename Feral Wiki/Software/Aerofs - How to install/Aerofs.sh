@@ -10,4 +10,3 @@ screen -S aerofs ~/aerofs/aerofs-cli
 echo "Starting up Aerofs"
 screen -dmS aerofs ~/aerofs/aerofs-cli &
 ##
-##
